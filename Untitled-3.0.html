@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quieres tener un hijo conmigo?</title>
+    <style>
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #800080; /* Color de fondo morado */
+            color: #000000; /* Color del texto negro */
+        }
+
+        #message {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icon {
+            cursor: pointer;
+            font-size: 48px;
+            margin: 20px;
+        }
+
+        /* Estilo adicional para el botón de "No" */
+        .moveable {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">¿Quieres tener un hijo conmigo?</div>
+    <div id="icons">
+        <div class="icon" onclick="confirmYes()">✔</div>
+        <div class="icon moveable" id="noIcon" onclick="moveIcon()">✘</div>
+    </div>
+
+    <script>
+        function confirmYes() {
+            alert("¡Ya lo sabía!");
+        }
+
+        function moveIcon() {
+            const icon = document.getElementById("noIcon");
+
+            function getRandomPosition(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            icon.style.left = getRandomPosition(0, window.innerWidth - icon.offsetWidth) + "px";
+            icon.style.top = getRandomPosition(0, window.innerHeight - icon.offsetHeight) + "px";
+        }
+    </script>
+</body>
+</html>
